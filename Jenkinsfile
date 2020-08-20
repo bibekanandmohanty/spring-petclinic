@@ -11,6 +11,14 @@ pipeline {
 		   sh 'ansible-playbook tomcat.yml'
 		 }
            }
+           stage('checkout') {
+               agent { 
+                   label 'deploy'
+            }
+             steps {
+                   git 'git@github.com:bibekanandmohanty/spring-petclinic.git'
+                 }
+           }
 	}
 
 }
