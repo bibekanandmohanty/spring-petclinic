@@ -1,0 +1,26 @@
+---
+ - hosts: all
+   gather_facts: false
+   become: yes
+   tasks:
+   - yum:
+        name: "*"
+        state: latest
+   - yum:
+        name: "{{ item }}"
+        state: present
+     loop:
+        - tomcat-webapps
+        - tomcat-admin-webapps
+        - tomcat-docs-webapp
+        - tomcat-javadoc
+        - java-1.8.0-openjdk-devel
+        - git
+        - maven
+   - copy:
+        src: /root/ansible/tomcat-users.xml
+        dest: /etc/tomcat/tomcat-users.xml
+   - service:
+        name: tomcat
+        state: restarted
+
