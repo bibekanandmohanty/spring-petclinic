@@ -12,6 +12,8 @@ pipeline {
 		 }
            }
 	}
+}
+pipeline {
     agent { label 'deploy' }
         stages {
            stage('checkout') {
