@@ -16,7 +16,7 @@ pipeline {
                    label 'deploy'
             }
              steps {
-                   git 'https://github.com/bibekanandmohanty/spring-petclinic.git'
+                   git 'git@github.com:bibekanandmohanty/spring-petclinic.git'
                  }
            }
 	}
