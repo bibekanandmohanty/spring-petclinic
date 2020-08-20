@@ -12,7 +12,7 @@ pipeline {
 		 }
            }
 	}
-         stages {
+        stages {
            stage('checkout') {
              agent {
                 label 'deploy'
