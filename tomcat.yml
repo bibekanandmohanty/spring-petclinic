@@ -18,7 +18,7 @@
         - git
         - maven
    - copy:
-        src: /root/ansible/tomcat-users.xml
+        src: tomcat-users.xml
         dest: /etc/tomcat/tomcat-users.xml
    - service:
         name: tomcat
