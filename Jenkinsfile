@@ -8,7 +8,7 @@ pipeline {
 	   }
 	   stage('install') {
 	     steps {
-		   sh 'ansible-playbook /root/spring-petclinic/tomcat.yml'
+		   sh 'ansible-playbook tomcat.yml'
 		 }
            }
 	}
