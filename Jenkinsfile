@@ -10,18 +10,22 @@ pipeline {
 		   git 'https://github.com/bibekanandmohanty/spring-petclinic.git'
 		 }
 	   }
-	   stage('Build')
+	   stage('Build') {
 	     steps {
 		   sh 'mvn clean compile'
 		 }
-	   stage('test')
+           }
+	   stage('test') {
 	     steps {
 		   sh 'mvn test'
 		   junit '**/target/surefire-reports/*.xml'
 		 }
-	   stage('Package')
+           }
+	   stage('Package') {
 	     steps {
 		   sh 'mvn package'
 		 }
+           }
 	}
+
 }
