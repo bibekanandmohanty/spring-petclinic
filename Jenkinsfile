@@ -1,12 +1,13 @@
 pipeline {
-    agent { label 'local_host' }
 	stages {
 	   stage('checkout') {
+             agent { label 'local_host' }
 	     steps {
 		   git 'git@github.com:bibekanandmohanty/spring-petclinic.git'
 		 }
 	   }
 	   stage('install') {
+             agent { label 'local_host' }
 	     steps {
 		   sh 'ansible-playbook tomcat.yml'
 		 }
