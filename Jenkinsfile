@@ -11,7 +11,7 @@ pipeline {
 		   sh 'ansible-playbook tomcat.yml'
 		 }
            }
-           stage('checkout') {
+           stage('checkout1') {
                agent { 
                    label 'deploy'
             }
