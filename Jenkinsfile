@@ -27,6 +27,14 @@ pipeline {
                    sh 'mvn clean compile'
                  }
            }
+           stage('Package') {
+               agent { 
+                   label 'deploy'
+            }
+             steps {
+                   sh 'mvn package'
+                 }
+           }
            stage('test') {
                agent { 
                    label 'deploy'
@@ -34,14 +42,6 @@ pipeline {
              steps {
                    sh 'mvn test'
                    junit '**/target/surefire-reports/*.xml'
-                 }
-           }
-           stage('Package') {
-               agent { 
-                   label 'deploy'
-            }
-             steps {
-                   sh 'mvn package'
                  }
            }
 	}
