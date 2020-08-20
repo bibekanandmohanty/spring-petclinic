@@ -1,10 +1,12 @@
 pipeline {
     agent { label 'deploy' }
-	tools {
-	   maven 'M3'	
-           git
-	}
 	stages {
+	   stage('install maven') {
+	     steps {
+                   sh 'sudo yum -y install maven'
+                   sh 'sudo yum -y install git'
+                }
+           }
 	   stage('checkout') {
 	     steps {
 		   git 'https://github.com/bibekanandmohanty/spring-petclinic.git'
